@@ -63,9 +63,16 @@ a:hover {
   color: #2268b2;
 }
 
+header a {
+  color: inherit;
+}
+header a:hover {
+  color: #444;
+}
+
 header {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
@@ -477,3 +484,119 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {}
+
+.post-subtitle {
+  float: left;
+  margin-bottom: 5px;
+  font-size: 85%; color: #AAA;
+}
+
+.post-digest {
+  clear: both;
+  /*margin-bottom: 5px;*/
+}
+
+.post-tags {
+  float: right;
+  margin-bottom: 5px; margin-right: 10px;
+  font-size: 85%; color: #AAA; font-style: italic;
+}
+
+.post-tags a {
+  color: inherit;
+}
+
+.post-tags a:hover {
+  color: #666;
+}
+
+.post .post-date {
+  font-size: 85%; color: #AAA;
+}
+
+#tag-list {
+  /*background: url('/images/tag_blue.png') no-repeat;*/
+  /*width: 50px; height: 50px; */
+
+    /*background: url('/images/tag_blue.png') no-repeat -120px -80px;*/
+    /*width: 24px; height: 24px; position: absolute; margin-left: -25px; margin-top: -2px;*/
+}
+
+.tag-list-item {
+  margin: 3px;
+  padding: 3px;
+  color: #BBB;
+  white-space: nowrap;
+  /*line-height: 1.2;*/
+  display: inline-block;
+}
+
+.tag-list-item:hover {
+  color: #999;
+  background-color: #EEE;
+  border: 1px none; border-radius: 6px; box-shadow: 0 2px 2px rgba(0,0,0,.25);
+}
+
+.tag-list-item a {
+  color:inherit;
+}
+
+.tag-list-item a:hover {
+  color:inherit;
+}
+
+.article-title {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.article-title-wrapper {
+  /*width: 90%;*/
+  /*background-color: #EEE;*/
+  /*border: 1px none; border-radius: 0px; box-shadow: 0 2px 2px rgba(0,0,0,.25);*/
+  /*display: inline-block;*/
+}
+
+.article-content {
+  clear: both;
+}
+
+.sidebar-title {
+  color: #666; font-weight: bold;
+  margin-bottom: 5px; margin-top: 20px;
+}
+
+.sidebar-title a {
+  color: inherit;
+}
+
+.sidebar-title a:hover {
+  color: #BBB;
+}
+
+.related-post {
+  margin-top: 3px; margin-bottom: 3px; margin-left: 5px;
+}
+
+.related-post a {
+  color: #BBB;
+}
+
+.related-post a:hover {
+  color: #666;
+}
+
+#footer-wrapper {
+  width: 690px;
+  float: left;
+}
+
+footer #tech {
+  margin-right: 20px;
+  float: right;
+}
+
+footer #cp {
+  margin-left: 20px;
+  float: left;
+}
