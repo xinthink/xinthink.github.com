@@ -491,6 +491,14 @@ footer a:hover {
   font-size: 85%; color: #AAA;
 }
 
+.post-subtitle a {
+  color: inherit;
+}
+
+.post-subtitle a:hover {
+  color: #666;
+}
+
 .post-digest {
   clear: both;
   /*margin-bottom: 5px;*/
