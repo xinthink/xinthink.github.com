@@ -594,6 +594,17 @@ footer a:hover {
   color: #666;
 }
 
+#feed-link {
+  background: url('/images/feed-normal.png') no-repeat;
+  padding-left: 18px; padding-top: 3px;
+  color: #BBB; font-weight: normal;
+}
+
+#feed-link:hover {
+  background: url('/images/feed-highlight.png') no-repeat;
+  color: #666;
+}
+
 #footer-wrapper {
   width: 690px;
   float: left;

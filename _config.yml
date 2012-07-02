@@ -1,3 +1,6 @@
+name: xinthink's blog
+description: personal blog of xinthink
+url: http://xinthink.github.com
 safe: false
 lsi: true
 pygments: true
