@@ -7,4 +7,4 @@ Parametric polymorphism is when a function's type signature allows various argum
 
 For example, in Java one can write a function that accepts two arguments of any possible type. However, Haskell goes further by allowing a function to accept two arguments of any type so long as they are both the same type. For example
 
-As a specific (and slightly more complicated) example, the well-known map function has a parametrically polymorphic type
+...
