@@ -376,6 +376,10 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
+#footer-wrapper {
+  width: 690px;
+}
+
 /* #Media Queries
 ================================================== */
 
@@ -409,6 +413,11 @@ footer a:hover {
     padding-right: 0;
     margin-left: 0;
   }
+
+  #footer-wrapper {
+    width: 490px;
+  }
+
 }
 
 /* All Mobile Sizes (devices and browser) */
@@ -477,6 +486,11 @@ footer a:hover {
     padding-right: 0;
     margin-left: 0;
   }
+
+  #footer-wrapper {
+    width: 100%;
+  }
+
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
@@ -606,7 +620,7 @@ footer a:hover {
 }
 
 #footer-wrapper {
-  width: 690px;
+  /*width: 690px;*/
   float: left;
 }
 
