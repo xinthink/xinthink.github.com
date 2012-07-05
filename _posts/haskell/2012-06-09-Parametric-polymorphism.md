@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: fp haskell
-tags: programming fp haskell
+tags: haskell
 ---
 Parametric polymorphism is when a function's type signature allows various arguments to take on arbitrary types, but the types must be related to each other in some way.
 
