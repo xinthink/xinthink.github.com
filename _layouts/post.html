@@ -3,9 +3,9 @@
 <div id="content-wrapper">
   <div class="inner clearfix">
 
-    <section id="main-content">
+    <section id="main-content" class="span7">
       <div class="article-title-wrapper">
-        <p class="article-title">{{ page.title }}</p>
+        <h2 class="article-title">{{ page.title }}</h2>
         <p class="post-subtitle">发表于 {{ page.date | date: '%Y-%m-%d' }}</p>
         <p class="post-tags">
         {% for tag in page.tags %}
@@ -24,3 +24,4 @@
   </div>
 </div>
 {% include footer-post.html %}
+{% include end.html %}
