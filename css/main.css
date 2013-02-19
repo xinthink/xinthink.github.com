@@ -1,3 +1,8 @@
+.post-title {
+  margin-top: 15px; margin-bottom: 5px;
+  padding-top: 10px;
+  border-top: 1px dashed #eeeeee;
+}
 
 .post-subtitle {
   float: left;
@@ -16,7 +21,7 @@
 .post-digest {
   clear: both;
   /*margin-bottom: 5px;*/
-  padding: 5px 5px 0px 10px;
+  padding: 5px 5px 10px 10px;
 }
 
 .post-tags {
