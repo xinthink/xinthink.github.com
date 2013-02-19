@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: fp haskell
-tags: programming fp haskell
+tags: fp haskell
 ---
 一个值如果根据上下文可以表现为多种类型，就可以称其之为多态的。多态可以分为很多不同的种类：
 
