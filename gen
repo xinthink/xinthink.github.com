@@ -1,0 +1,33 @@
+#!/bin/bash
+POST_DIR="_posts"
+POST_EXT=".md"
+
+if [ ! -d $POST_DIR ]; then
+  mkdir -p $POST_DIR
+fi
+
+case $1 in
+  post )
+    # create new post. Usage: post title [category]
+    shift 1
+    title="`echo "$1" | awk '{gsub(/ /,"-")}; 1'`"
+    cat="`echo "$2" | awk '{gsub(/ /,"-")}; 1'`"
+    dest=$POST_DIR
+
+    echo "creating post <$title> under category <$cat>"
+    if [ "$cat" ]; then
+      mkdir -p "$POST_DIR/$cat"
+      dest="$dest/$cat"
+    fi
+
+    file="$dest/`date '+%Y-%m-%d'`-$title$POST_EXT"
+    echo "post file <$file> will be created"
+    echo "---" > $file
+    echo "layout: post" >> $file
+    echo "title: \"$title\"" >> $file
+    echo "description: \"$title\"" >> $file
+    echo "category: $cat" >> $file
+    echo "tags: " >> $file
+    echo "---" >> $file
+    ;;
+esac
