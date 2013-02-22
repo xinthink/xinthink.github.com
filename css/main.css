@@ -43,10 +43,10 @@
 }
 
 #tag-list {
-  /*background: url('/images/tag_blue.png') no-repeat;*/
+  /*background: url('/img/tag_blue.png') no-repeat;*/
   /*width: 50px; height: 50px; */
 
-    /*background: url('/images/tag_blue.png') no-repeat -120px -80px;*/
+    /*background: url('/img/tag_blue.png') no-repeat -120px -80px;*/
     /*width: 24px; height: 24px; position: absolute; margin-left: -25px; margin-top: -2px;*/
 }
 
@@ -120,13 +120,13 @@
 }
 
 #feed-link {
-  background: url('/images/feed-normal.png') no-repeat;
+  background: url('/img/feed-normal.png') no-repeat;
   padding-left: 18px; padding-top: 3px;
   color: #BBB; font-weight: normal;
 }
 
 #feed-link:hover {
-  background: url('/images/feed-highlight.png') no-repeat;
+  background: url('/img/feed-highlight.png') no-repeat;
   color: #666;
 }
 
