@@ -13,63 +13,20 @@
     <!-- for debug -->
     <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <style rel="stylesheet">
-      /* Sticky footer styles
-      -------------------------------------------------- */
-      html,
-      body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
-      }
-
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
-      }
-
-      /* Set the fixed height of the footer here */
-      #push,
-      footer {
-        height: 60px;
-      }
-      footer {
-        background-color: #f5f5f5;
-      }
-
-      /* Lastly, apply responsive CSS fixes as necessary */
-      @media (max-width: 767px) {
-        footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-
-      /* Custom page CSS
-        -------------------------------------------------- */
-      .container {
-        width: auto;
-        max-width: 979px;
-      }
-      .container .credit {
-        margin: 20px 0;
-      }
-    </style>
-
-    <title>{% if page.title %}{{page.title}} - {% endif %}xinthink</title>
+    <title>{% if page.title %}{{page.title}} - xinthink{% else %}xinthink - dumping my mind{% endif %}</title>
   </head>
   <body>
   <div id="wrap">
     <header>
       <div class="container">
-        <div class="page-header">
+        <div class="page-header clearifx">
           <h1><a href="/">xinthink's blog</a></h1>
-          <a href="https://github.com/xinthink" class="button"><small>Follow me on</small> GitHub</a>
+          <i class="sub-title span10" style="margin-left:0px;">dumping my mind</i>
+          <small class="span2 row">
+            <a href="https://github.com/xinthink" class="ic-github">GitHub</a> | 
+            <a href="http://weibo.com/thinkage" class="button">微博</a>
+          </small>
+          <div style="clear:both;"></div>
         </div>
       </div>
     </header>
