@@ -43,6 +43,18 @@ footer {
 header .sub-title {
   color: #999999;
   font-style: italic;
+  margin-left: 0px;
+}
+
+header #social {
+  text-align: right;
+  margin-right: 10px; margin-left: 10px;
+}
+@media (max-width: 767px) {
+  header #social {
+    text-align: left;
+    margin-left: 0px;
+  }
 }
 
 .post-title {
