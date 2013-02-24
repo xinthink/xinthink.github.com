@@ -2,11 +2,15 @@
     <div id="push"></div>
   </div>
   <footer>
-    <div class="container">
-      <p class="muted credit copy">
-        &copy; <a href="https://github.com/xinthink">xinthink</a> {{ 'now' | date: "%Y" }} Powered by <a href="http://pages.github.com">GitHub Pages</a> 
-      </p>
+    <div class="container muted">
+      <small class="credit copy span7">
+        &copy; <a href="https://github.com/xinthink">xinthink</a> {{ 'now' | date: "%Y" }}
+      </small>
+      <small id="build" class="span3 credit">
+        <a href="https://github.com/xinthink/xinthink.github.com">built {{ site.time | date: "%Y-%m-%d" }}</a>
+      </small>
     </div>
+    <div style="clear:both;"></div>
   </footer>
 
   <script type="text/javascript">

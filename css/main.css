@@ -57,6 +57,17 @@ header #social {
   }
 }
 
+footer #build {
+  text-align: right;
+  margin-right: 0; margin-left: 20px;
+}
+@media (max-width: 767px) {
+  footer #build {
+    text-align: left;
+    margin-left: 0px;
+  }
+}
+
 .post-title {
   margin-top: 15px; margin-bottom: 5px;
   padding-top: 10px;
