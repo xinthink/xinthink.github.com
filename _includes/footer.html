@@ -4,13 +4,10 @@
   <footer>
     <div class="container muted">
       <small class="credit copy span7">
-        <script type="text/javascript">
-          var currentTime = new Date();
-        </script> 
-        &copy; <a href="https://github.com/xinthink">xinthink</a> <script type="text/javascript">document.write(currentTime.getFullYear());</script>
+        &copy; <a href="https://github.com/xinthink">xinthink</a> <script type="text/javascript">document.write((new Date()).getFullYear());</script>
       </small>
       <small id="build" class="span3 credit">
-        <a href="https://github.com/xinthink/xinthink.github.com">built {{ site.time | date: "%Y-%m-%d" }}</a>
+        Built <a href="https://github.com/xinthink/xinthink.github.com">{{ site.time | date: "%Y-%m-%d %Z" }}</a>
       </small>
     </div>
     <div style="clear:both;"></div>

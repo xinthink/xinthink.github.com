@@ -33,11 +33,15 @@ post() {
   echo "description: \"$title\"" >> $file
   echo "category: $cat" >> $file
   echo "tags: " >> $file
+  echo "path: $file" >> $file
   echo "---" >> $file
 }
 
 case $1 in
   post )
     post $*
+    ;;
+  * )
+    echo "unknown command: $1"
     ;;
 esac

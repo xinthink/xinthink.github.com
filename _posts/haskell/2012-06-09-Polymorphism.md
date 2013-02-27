@@ -1,7 +1,8 @@
 ---
 layout: post
-categories: fp haskell
-tags: fp haskell
+categories: haskell fp
+tags: haskell fp
+path: _posts/haskell/2012-06-09-Polymorphism.md
 ---
 一个值如果根据上下文可以表现为多种类型，就可以称其之为多态的。多态可以分为很多不同的种类：
 
