@@ -7,7 +7,7 @@ layout: layout
     <section id="main-content" class="span10">
       <div class="article-title-wrapper">
         <h2 class="article-title">{{ page.title }}</h2>
-        <p class="post-subtitle">发表于 {{ page.date | date: '%Y-%m-%d' }} | <a href="https://github.com/xinthink/xinthink.github.com/commits/master/{{ page.path }}">历史</a>
+        <p class="post-subtitle">发表于 {{ page.date | date: '%Y-%m-%d' }} | <a href="{{ site.repo }}/{{ site.repoBr }}/{{ page.path }}">历史</a>
         </p>
         <p class="post-tags">
         {% for tag in page.tags %}

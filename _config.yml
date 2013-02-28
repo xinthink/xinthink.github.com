@@ -11,3 +11,8 @@ markdown: redcarpet
   # render_options:
     # - with_toc_data
     # - hard_wrap
+
+author: xinthink
+authorSite: https://github.com/xinthink
+repo: https://github.com/xinthink/xinthink.github.com
+repoBr: commits/master
