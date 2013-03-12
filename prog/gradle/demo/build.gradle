@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+task wrap(type: Wrapper) {
+  description = 'Create gradle wrapper'
+  gradleVersion = '1.4'
+  scriptFile = 'g'
+}
