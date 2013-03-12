@@ -1,7 +1,30 @@
-apply plugin: 'java'
-
 task wrap(type: Wrapper) {
   description = 'Create gradle wrapper'
   gradleVersion = '1.4'
   scriptFile = 'g'
+}
+
+subprojects {
+  apply plugin: 'java'
+
+  // 声明项目使用的资源库
+  repositories {
+    mavenCentral() 
+  }
+
+  // 依赖声明
+  dependencies {
+    compile 'org.slf4j:slf4j-api:1.6.6'
+
+    runtime (
+      'ch.qos.logback:logback-classic:1.0.7',
+      'org.slf4j:jcl-over-slf4j:1.6.6',
+    )
+
+    testCompile 'junit:junit:4.10'
+  }
+
+  task demo << {
+    println "v $version"
+  }
 }
