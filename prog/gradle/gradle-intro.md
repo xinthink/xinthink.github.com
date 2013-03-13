@@ -127,14 +127,14 @@ dependencies {
 ### 多工程构建
 项目很成功，需求源源不断，现在我们的工程已经膨胀了数倍，考虑到并行开发和代码重用的需要，我们决定将原来的单个大工程拆分成多个较小的工程（模块）。
 
-假设项目拆分成了 core 和 war 两个子工程，目录结构如下：
+假设项目拆分成了core和web两个子工程，目录结构如下：
 
     demo                项目根目录
-      |-- core          core 子工程
+      |-- core         core子工程
       |    |-- build    子工程的构建目录
       |    \-- src      子工程的源代码目录
       |
-      \-- war           war 子工程
+      \-- web          web子工程
            |-- build    子工程的构建目录
            \-- src      子工程的源代码目录
 
@@ -144,9 +144,11 @@ dependencies {
 2. 第三方依赖的统一管理，避免第三方组件的版本冲突（这是很让人头疼的问题）
 3. 构建脚本的整洁，构建逻辑的重用
 
-带着这些问题，我们开始在Gradle中使用多工程构建。首先需要声明子工程，在根目录下放置一个 `settings.gradle` 文件：
+带着这些问题，我们开始在Gradle中使用多工程构建。
 
-    include "core", "war"
+首先需要声明子工程，在根目录下放置一个 `settings.gradle` 文件：
+
+    include "core", "web"
 
 在根工程的 `build.gradle` 脚本中定义公共的构建逻辑：
 
@@ -168,9 +170,9 @@ subprojects {
 subprojects 中定义的任何内容将所有子工程生效，你可以在这里定义属性、依赖，甚至task。
 
 * 多项目环境下，执行task时，将会对所有适用的子工程进行调用，如： `gradle compileJava` 将编译所有的子工程
-* 单独执行某个工程的task，需要指定工程前缀，如： `gradle :war:compileJava`
+* 单独执行某个工程的task，需要指定工程前缀，如： `gradle :core:compileJava`
 
-子工程如果没有特殊的需要，可以没有 `build.gradle` 文件，我们的 core 模块就是如此。不过很显然 war 模块需要成为一个 web 工程，而且需要引用 core 模块，因此，我们需要为 war 模块放置一个 `build.gradle`：
+子工程如果没有特别的需要，可以没有 `build.gradle` 文件，我们的core模块就是如此。不过很显然web模块应该是一个JEE Web应用，而且需要引用core模块，因此，我们为它添加一份 `build.gradle`：
 
 ```gradle
 apply plugin: 'war'
@@ -178,22 +180,28 @@ apply plugin: 'jetty'
 
 dependencies {
   compile project(':core')
+  providedCompile 'javax.servlet:javax.servlet-api:3.1'
 }
 ```
-现在执行 `gradle :war:compileJava` ，Gradle将会确保 core 工程先被编译并打包。
 
-好了，看来我们关注的多工程构建问题已经有了答案：
+* `providedCompile` （在war插件中定义）可以确保servlet-api能够在编译时被引用，却不随web工程发布（运行时由Web容器提供）
 
-* 我们只需要声明子工程的依赖关系，Gradle将自动管理构建顺序，而这样的声明与第三方依赖的声明方式是一致的
+现在执行 `gradle :web:compileJava` ，Gradle将会确保core工程先被编译并打包；执行 `gradle :web:assemble` 得到的war包也将包含core.jar。
+
+看来我们关注的多工程构建问题已经有了答案：
+
+* 我们只需要声明子工程间的依赖关系，Gradle将自动管理构建顺序，而这样的声明与第三方依赖的声明方式是一致的
 * 公共的依赖统一声明，避免各自为政带来的混乱
 * 在 `subprojects` `allprojects` 中定义公共的属性、逻辑和依赖，子工程只需进行增量定义或覆盖默认值即可
 
-Gradle也采用多工程管理自身的源代码，对我们来讲这实在是再好不过的参考资源了。另外，Gradle也因此一定十分深刻地了解多工程构建的种种需求，从而进行更好的支持，Gradle也确实将多工程构建视为亮点之一。
+Gradle也采用多工程管理自身的源代码，对我们来讲这实在是再好不过的参考资源了。另外，Gradle也因此一定十分深刻地了解多工程构建的种种需求，从而进行更好的支持，Gradle也确实将多工程构建视为其卖点之一。
 
-### 依赖管理
+### 发布组件
+Maven最成功之处无疑是它的资源库，这使得我们能够如此容易地获取优秀的第三方组件，特别是当我们建立了企业内部的Maven资源库镜像。同时，随着企业规模的扩大，我们开始需要在团队之间共享组件，内部Maven资源库无疑是最好的选择。
 
-* 引用
-* 发布
+我们的core组件是如此酷，以至于其他团队天天嚷着要引入，好吧，现在让我们看看如何将组件发布到Maven资源库。
+
+
 
 ### 插件
 
