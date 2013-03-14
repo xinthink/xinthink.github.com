@@ -1,0 +1,22 @@
+apply plugin: 'maven'
+
+ext.pomCfg = {
+  name 'core'
+  description 'The core component'
+  url 'https://yourcompany/core'
+  artifactId 'core'
+  packaging 'jar'
+  // scm {
+  //   ...
+  // }
+  // developers {
+  //   ...
+  // }
+}
+
+uploadArchives.repositories.mavenDeployer {
+  repository(url: '<repo_url>') {
+    authentication(userName: '<repo_user>', password: '<repo_passwd>')
+  }
+  pom.project pomCfg
+}
