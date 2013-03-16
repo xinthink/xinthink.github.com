@@ -12,6 +12,21 @@ subprojects {
     mavenCentral() 
   }
 
+  sourceSets {
+    main {
+      java.srcDirs \
+        'src/domain', 'src/controller', 'src/service'
+    }
+  }
+
+  task mkSrcDirs {
+    description = 'Create all source dirs'
+    doLast {
+        sourceSets*.java.srcDirs*.each { it.mkdirs() }
+        sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    }
+}
+
   // 依赖声明
   dependencies {
     compile 'org.slf4j:slf4j-api:1.6.6'
