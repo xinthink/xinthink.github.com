@@ -1,0 +1,23 @@
+<aside id="sidebar" class="span2">
+  <a id="feed-link" href="/feed.xml">RSS feed</a>
+
+  {% if site.related_posts %}
+  <div id="related-post-wrapper">
+    <p class="sidebar-title">相关文章</p>
+  {% for post in site.related_posts %}
+    <p class="related-post">
+      <a href="{{post.url}}">{{post.title}}</a>
+    </p>
+  {% endfor %}
+  </div>
+  {% endif %}
+  
+  <div id="tag-list-wrapper">
+    <p class="sidebar-title"><a href="/tags.html">标签</a></p>
+  {% for tag in site.tags %}
+    <span class="tag-list-item">
+      <a href="/tags.html#{{tag[0]}}" style="font-size: {{ tag[1].size | divided_by: site.posts.size | times: 150 | plus: 50 }}%">{{ tag[0] }}</a>
+    </span>
+  {% endfor %}
+  </div>
+</aside>

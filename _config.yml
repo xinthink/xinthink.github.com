@@ -1,0 +1,18 @@
+name: xinthink's blog
+description: personal blog of xinthink
+url: http://xinthink.com
+safe: false
+lsi: false
+auto: true
+pygments: true
+markdown: redcarpet
+# redcarpet:
+  # extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  # render_options:
+    # - with_toc_data
+    # - hard_wrap
+
+author: xinthink
+authorSite: https://github.com/xinthink
+repo: https://github.com/xinthink/xinthink.github.com
+repoBr: commits/master

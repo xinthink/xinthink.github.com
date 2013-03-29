@@ -1,0 +1,47 @@
+#!/bin/bash
+POST_DIR="_posts"
+POST_EXT=".md"
+
+if [ ! -d $POST_DIR ]; then
+  mkdir -p $POST_DIR
+fi
+
+# create new post. Usage: post title [category]
+post() {
+  shift 1
+  title="`echo "$1" | awk '{gsub(/ /,"-")}; 1'`"
+  cat="`echo "$2" | awk '{gsub(/ /,"-")}; 1'`"
+
+  if [ ! "$title" ]; then
+    echo "Usage: post title [category]"
+    exit 1
+  fi
+
+  dest=$POST_DIR
+  if [ "$cat" ]; then
+    echo "creating post <$title> under category <$cat>"
+    mkdir -p "$POST_DIR/$cat"
+    dest="$dest/$cat"
+  fi
+  
+  file="$dest/`date '+%Y-%m-%d'`-$title$POST_EXT"
+  echo "post file <$file> will be created"
+  
+  echo "---" > $file
+  echo "layout: post" >> $file
+  echo "title: \"$title\"" >> $file
+  echo "description: \"$title\"" >> $file
+  echo "category: $cat" >> $file
+  echo "tags: " >> $file
+  echo "path: $file" >> $file
+  echo "---" >> $file
+}
+
+case $1 in
+  post )
+    post $*
+    ;;
+  * )
+    echo "unknown command: $1"
+    ;;
+esac
