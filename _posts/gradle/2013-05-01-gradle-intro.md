@@ -1,5 +1,11 @@
-# 拥抱Gradle: 下一代自动化工具
-
+---
+layout: post
+title: "拥抱Gradle: 下一代自动化工具"
+description: 
+category: gradle
+tags: gradle build automation
+path: _posts/gradle/2013-05-01-gradle-intro.md
+---
 ## 认识Gradle
 过去Java世界的人谈起构建、自动化，Ant、Maven一定是必备的词汇吧，而如今，“Gradle”这个名字也渐渐吸引了更多的目光。今天我们就来认识一下这位号称“下一代自动化工具”的Gradle。
 
@@ -28,7 +34,7 @@
 
 嗯，我想我们需要一个更好的解决方案，也许会是这样的：
 
-```gradle
+```groovy
 apply plugin: 'java'
 
 version = '1.0-SNAPSHOT'
@@ -43,7 +49,7 @@ compileJava {
 
 * 程序员更容易读懂编程语言编写的代码，而不是XML，后者擅长作为一种数据交换格式，是给机器读的（如Web Service）
 * 编程语言的强大能力应为构建过程所用，如上面代码中的 `endsWith` 方法，而无需舍近求远地使用 `<contains>`
-* 更重要的是，Java程序员无需翻阅文档就能使用 `if` ， `else` 和 `endsWith` ，而 `<condition>` 和 `<contains>` 则不见得
+* 更重要的是，Java程序员无需翻阅文档就能使用 `if` ，`else` 和 `endsWith` ，而 `<condition>` 和 `<contains>` 则不见得
 * 额外地，动态语言以及DSL能够使得程序员更专注在构建逻辑上，脚本也更为简洁、易读，而在这方面XML真是望尘莫及
 
 ## Gradle是什么
@@ -68,7 +74,7 @@ compileJava {
 #### 第一个例子
 继续文章开头的例子，现在我们的Java工程构建已从Ant切换到了Gradle，可我们还没剖析过那段很酷的代码，它究竟是什么意思？
 
-```gradle
+```groovy
 apply plugin: 'java' // 引用Java插件
 
 version = '1.0-SNAPSHOT' // 定义项目的版本号
@@ -92,7 +98,7 @@ compileJava {
 
 在build.gradle中的任意位置添加：
 
-```gradle
+```groovy
 // 声明需要使用的资源库
 repositories {
   mavenCentral() 
@@ -118,7 +124,7 @@ dependencies {
 
 与Maven一样，Gradle默认会自动解析、下载间接的依赖（即Transitive Dependency Management）。大多数情况下这个特性很方便，但总有例外的时候，随着外部依赖的增多，间接依赖的组件就容易出现冲突。这个时候，一个Gradle命令可以帮助我们， `gradle dependencies` 。不需要引入额外的插件，借助它就可以打印出工程的依赖树。如果发现存在冲突的组件，可以关闭依赖传递或使用 `exclude` 排除特定的间接依赖，再显式地声明。例如：
 
-```gradle
+```groovy
 // 排除全部或特定的间接依赖
 runtime ('commons-dbcp:commons-dbcp:1.4') {
   transitive = false
@@ -136,6 +142,7 @@ runtime 'commons-pool:commons-pool:1.6'
 随着构建逻辑的增多，我们发现每次发布，都要在多处同时修改版本号，这很容出现疏漏。于是，我们把构建过程的一些全局性或者需反复引用的值抽取出来，统一在属性文件中定义，使构建脚本更整洁、更易维护性。
 
 建议：
+
 * 将工程范围内的全局属性放到工程（主、子工程均可）目录下的 `gradle.properties` 文件中
 * 而与开发者个人相关且不便纳入版本控制的属性，放到 `$HOME/.gradle` 下的 `gradle.properties` 文件，比如签署app的密钥
 * 与环境相关的属性（测试环境标志、工程发布目录等），则可通过 `-P` 参数在执行命令时传入，如 `gradle demo -Pdebug=line`（建议在CI环境中自动执行）
@@ -168,7 +175,7 @@ runtime 'commons-pool:commons-pool:1.6'
 
 在根工程的 `build.gradle` 中定义公共的构建逻辑：
 
-```gradle
+```groovy
 subprojects {
   apply plugin: 'java'
 
@@ -190,7 +197,7 @@ subprojects 中定义的任何内容都将对所有子工程生效，包括属�
 
 子工程如果没有特别的需要，可以没有 `build.gradle` 文件，我们的core模块就是如此。不过很显然web模块应该是一个JEE Web应用，而且需要引用core模块，因此，我们为它添加一份 `build.gradle`：
 
-```gradle
+```groovy
 apply plugin: 'war'
 apply plugin: 'jetty'
 
@@ -219,7 +226,7 @@ Gradle也采用多工程管理自身的源代码，因此一定十分深刻地�
 
 首先定义发布的目标资源库，现在core工程也需要 `build.gradle` 了：
 
-```gradle
+```groovy
 apply plugin: 'maven'
 
 uploadArchives {
@@ -238,7 +245,7 @@ uploadArchives {
 
 既然使用Maven资源库，最好还是按Maven的惯例，补充完整组件描述符（POM）：
 
-```gradle
+```groovy
 apply plugin: 'maven'
 
 uploadArchives {
@@ -259,7 +266,7 @@ uploadArchives {
 
 看看最后这一串大括号，是否觉得嵌套层次有点深？让我们稍稍整理一下：
 
-```gradle
+```groovy
 apply plugin: 'maven'
 
 ext.pomCfg = {
@@ -292,7 +299,7 @@ uploadArchives.repositories.mavenDeployer {
 
 我们把约定的工程目录、编译选项等单独定义至 `company.gradle` ：
 
-```gradle
+```groovy
 // 编译器选项
 tasks.withType(Compile) {
   options.encoding = 'utf-8'
@@ -313,7 +320,7 @@ repositories {
 
 我们在内网站点共享了这个文件，供各个项目引用：
 
-```gradle
+```groovy
 apply from: <link_to_company_gradle>
 
 // 项目特定的构建逻辑
@@ -325,13 +332,13 @@ apply from: <link_to_company_gradle>
 
 这个问题早在Ant、Maven的时代就存在了，不过现在终于有了更好的解决方案：Gradle Wrapper。非常简单，实际上只需要这么一个Task：
 
-```gradle
+```groovy
 task wrap(type: Wrapper) {
   gradleVersion = '1.4' // 声明版本
   scriptFile = 'g' // 默认gradlew，太长
 }
 ```
-只需一人（通常为工程的创建者）执行此Task，生成 `g` 和 `g.bat` 脚本及相关文件，把这些内容和工程文件一起放入SCM。其他开发者取得后，立刻可以通过 `g` 或 `g.bat` 脚本执行Gradle命令，不必预先安装Gradle运行环境，而是第一次运行时会自动下载、安装。
+只需一人（通常为工程的创建者）执行此Task，生成 `g` 和 `g.bat` 脚本及相关文件，把这些内容和工程文件一起放入SCM。其他开发者取得后，立刻可以通过 `g` 或 `g.bat` 脚本执行Gradle命令，不必预先安装Gradle运行环境，而是第一次运行时自动下载、安装。
 
 * 遗憾的是，由于Gradle包的Size以及网络位置的问题，等待下载时要有耐心，建议在内网预先缓存该二进制包
 
@@ -348,3 +355,14 @@ task wrap(type: Wrapper) {
 * 一切皆代码，组件依赖、构建环境等都成为可以进入SCM的“代码”，从而无论在何处，都可以还原出期望的构建环境
 
 Gradle还刚刚起步，却已经吸引了Spring Framework、Hibernate、Grails等大名鼎鼎的用户。有理由相信，Gradle在未来还会带给我们更大的惊喜。
+
+* 本文已发表在[《程序员》杂志 2013年第4期](http://www.programmer.com.cn/15677/)
+
+---
+
+## 资源
+
+1. [样例代码](/files/gradle-demo.zip)
+2. [Gradle Docs](http://gradle.org/docs)
+3. [Gradle Cookbook](http://docs.codehaus.org/display/GRADLE/Cookbook)
+4. [Stack Overflow](http://stackoverflow.com/questions/tagged/gradle)

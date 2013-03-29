@@ -2,7 +2,7 @@ name: xinthink's blog
 description: personal blog of xinthink
 url: http://xinthink.com
 safe: false
-lsi: false
+lsi: true
 auto: true
 pygments: true
 markdown: redcarpet
