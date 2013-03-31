@@ -14,8 +14,7 @@ subprojects {
 
   sourceSets {
     main {
-      java.srcDirs \
-        'src/domain', 'src/controller', 'src/service'
+      java.srcDirs 'src/domain', 'src/controller', 'src/service'
     }
   }
 
@@ -37,9 +36,5 @@ subprojects {
     )
 
     testCompile 'junit:junit:4.10'
-  }
-
-  task demo << {
-    println "v $version"
   }
 }
