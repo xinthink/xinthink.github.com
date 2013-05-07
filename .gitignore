@@ -1,2 +1,12 @@
-_site
+# R
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+
+# Mac
 .DS_Store
+*.pages
+
+# Jekyll
+/_site
