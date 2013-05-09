@@ -43,7 +43,7 @@ footer {
 header .sub-title {
   color: #999999;
   font-style: italic;
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 header #social {
@@ -122,7 +122,7 @@ footer #build {
 
 /*.ic-github {
   background: url('/img/github.jpeg') no-repeat;
-  width: 24px; height: 24px; 
+  width: 24px; height: 24px;
 }*/
 
 .tag-list-item {
