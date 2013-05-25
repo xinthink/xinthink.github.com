@@ -9,10 +9,11 @@ fi
 # create new post. Usage: post title [category]
 post() {
   shift 1
-  title="`echo "$1" | awk '{gsub(/ /,"-")}; 1'`"
+  title="$1"
+  name="`echo "$title" | awk '{gsub(/ /,"-")}; 1'`"
   cat="`echo "$2" | awk '{gsub(/ /,"-")}; 1'`"
 
-  if [ ! "$title" ]; then
+  if [ ! "$name" ]; then
     echo "Usage: post title [category]"
     exit 1
   fi
@@ -24,7 +25,7 @@ post() {
     dest="$dest/$cat"
   fi
 
-  file="$dest/`date '+%Y-%m-%d'`-$title$POST_EXT"
+  file="$dest/`date '+%Y-%m-%d'`-$name$POST_EXT"
   echo "post file <$file> will be created"
 
   echo "---" > $file
