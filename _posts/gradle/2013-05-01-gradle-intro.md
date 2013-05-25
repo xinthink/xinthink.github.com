@@ -354,9 +354,9 @@ task wrap(type: Wrapper) {
 * 基于惯例的构建，使我们不必一再重复一些“显而易见”的配置，同时更容易地规范企业内部的构建过程，从而进一步提升企业的效率
 * 一切皆代码，组件依赖、构建环境等都成为可以进入 SCM 的“代码”，从而无论在何处，都可以还原出期望的构建环境
 
- Gradle 还刚刚起步，却已经吸引了 [SpringSource](https://github.com/SpringSource)、 [Hibernate](https://github.com/hibernate) 、 [Grails](https://github.com/grails)等大名鼎鼎的客户。有理由相信， Gradle 在未来还会带给我们更大的惊喜。
+Gradle 还刚刚起步，却已经吸引了 [SpringSource](https://github.com/SpringSource)、 [Hibernate](https://github.com/hibernate) 、 [Grails](https://github.com/grails)等大名鼎鼎的客户。有理由相信， Gradle 在未来还会带给我们更大的惊喜。
 
-* 本文已发表在[《程序员》杂志 2013年第4期](http://www.programmer.com.cn/15677/)
+> 本文已发表在[《程序员》杂志 2013年第4期](http://www.programmer.com.cn/15677/)
 
 ---
 
