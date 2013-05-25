@@ -35,6 +35,11 @@ post() {
   echo "tags: " >> $file
   echo "path: $file" >> $file
   echo "---" >> $file
+
+  if [[ `type -P subl` ]]; then
+    # open file in sublime text 2, if it's a Mac
+    subl $file
+  fi
 }
 
 case $1 in
