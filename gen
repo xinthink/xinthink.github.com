@@ -23,10 +23,10 @@ post() {
     mkdir -p "$POST_DIR/$cat"
     dest="$dest/$cat"
   fi
-  
+
   file="$dest/`date '+%Y-%m-%d'`-$title$POST_EXT"
   echo "post file <$file> will be created"
-  
+
   echo "---" > $file
   echo "layout: post" >> $file
   echo "title: \"$title\"" >> $file
@@ -39,7 +39,7 @@ post() {
 
 case $1 in
   post )
-    post $*
+    post "$@"
     ;;
   * )
     echo "unknown command: $1"
