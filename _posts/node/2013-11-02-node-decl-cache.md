@@ -150,7 +150,9 @@ public Book findBook(ISBN isbn);
 findCustomerWithCache = cacheable findCustomer, ns: 'customer', dur: 86400
 ```
 
-首先，我们需要一个通用的 cache key 生成方式:
+为便于理解，不妨将 `cacheable` 类比为 [Spring ProxyFactoryBean](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop-api.html#aop-pfb)，通过它，我们可以获得一个代理，其表现形式无异于原函数 (如本例中 `findCustomer`)，却能够在背后默默地帮我们完成缓存的相关处理。
+
+为实现这一机制，我们首先需要一个通用的 cache key 生成方式:
 
 ```coffee-script
 ### Generates cache key using function arguments.
@@ -160,7 +162,7 @@ findCustomerWithCache = cacheable findCustomer, ns: 'customer', dur: 86400
 getKey = (ns, args=[]) -> ns + ':' + ...
 ```
 
-使用前缀 + 参数列表自动生成 cache key ，对于含有多个参数的情况，可以使用 hash 的方法，这里我就不写了。
+使用前缀 + 参数列表自动生成 cache key ，对于含有多个参数的情况，可以使用 hash (参考[Default Key Generation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html#cache-annotations-cacheable-default-key))，这里我就不写了。
 
 接下来就简单了，利用之前的成果，我们很容易就可以写出满足上述形式的 `cacheable` 函数：
 
