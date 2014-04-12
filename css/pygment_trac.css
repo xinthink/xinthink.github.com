@@ -1,8 +1,16 @@
-.highlight  { background: #ffffff; }
+.highlight  {
+  background: #222222;
+/*  border: 1px solid #222222; */
+  border-radius: 4px;
+  margin-top: 10px; margin-bottom: 10px;
+}
+.highlight pre { background: #222222; color: #d0d0d0; }
+/*.highlight pre { background: #222222; }*/
+.highlight .p { color: #ccc;}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
-.highlight .k { font-weight: bold } /* Keyword */
-.highlight .o { font-weight: bold } /* Operator */
+.highlight .k { font-weight: bold; color: #5CB8E6; } /* Keyword */
+.highlight .o { font-weight: bold; color: #ccc; } /* Operator */
 .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
 .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
@@ -19,8 +27,8 @@
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold; } /* Generic.Subheading */
 .highlight .gt { color: #aa0000 } /* Generic.Traceback */
-.highlight .kc { font-weight: bold } /* Keyword.Constant */
-.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kc { font-weight: bold; color: #CC3399; } /* Keyword.Constant */
+.highlight .kd { font-weight: bold; color: #c96; } /* Keyword.Declaration */
 .highlight .kn { font-weight: bold } /* Keyword.Namespace */
 .highlight .kp { font-weight: bold } /* Keyword.Pseudo */
 .highlight .kr { font-weight: bold } /* Keyword.Reserved */
@@ -33,7 +41,8 @@
 .highlight .no { color: #008080 } /* Name.Constant */
 .highlight .ni { color: #800080 } /* Name.Entity */
 .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+/*.highlight .nf { color: #c96; }*/ /* Name.Function */
+/*.highlight .nx { color: #c96; }*/ /* Name.Function */
 .highlight .nn { color: #555555 } /* Name.Namespace */
 .highlight .nt { color: #000080 } /* Name.Tag */
 .highlight .nv { color: #008080 } /* Name.Variable */
