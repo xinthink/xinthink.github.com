@@ -49,7 +49,7 @@ doIO1(function(err, v1) {        // 第一个I/O操作
 
 
 ## Async.js遗忘的角落
-初初，我使用[Async.js](https://github.com/caolan/async)化解Callback Hell
+为了解决这个问题，我开始使用[Async.js](https://github.com/caolan/async)
 
 ```javascript
 var doIO1AndIO2 = async.compose(doIO2, doIO1);  // 组合两个异步函数
@@ -66,9 +66,9 @@ doIO1AndIO2(function(err, v2) {
 
 很酷，对不对？Async.js真是一个伟大的lib，但是即便如此，仍然有它触及不到的角落...
 
-假设我有一个同步函数`do1`，它返回一个值，如果我想把`do1`和`doIO2`组合起来，怎么办？`async.compose`和`underscore.compose`都办不到，它们一个只能处理异步函数，一个只能处理同步函数...
+假设我有一个同步函数`do1`，它返回一个值，如果我想把`do1`和`doIO2`组合起来，怎么办？`async.compose`和`underscore.compose`都办不到，它们一个只适用于回调风格，另一个则只适用于返回值风格...
 
-有人会说：切，`doIO2(do1(), function(err, v2) {...`不就完了？是的，这样当然OK，但如果我们希望最大程度地重用逻辑时，让函数保持独立，根据实际需要灵活组合就是更好的选择了。所以，将同步和异步函数组合起来使用的场景是可能存在的。
+有人会说：切，`doIO2(do1(), function(err, v2) {...`不就完了？是的，一般情况下这都是不错的选择。但如果我们希望最大程度地重用逻辑时，让函数保持独立，根据实际需要灵活组合就是更好的选择了。所以，将同步和异步函数组合起来使用的场景是可能存在的。
 
 这时我们就需要一个异步版本的`do1`：
 
@@ -107,7 +107,7 @@ var handleError = function (err) { ... };  // 统一处理throw或callback传递
 doIO1().then(doIO2).then(useResult, handleError);
 ```
 
-哇！很像命令行pipe吧：`doIO1 | doIO2 | useResult`。我们只是描述了数据（value）的流向，而不必关注数据到底是如何成功地由1转到2的。这就是函数式编程的特点，现在稍微可以理解 [@jcoglan](https://github.com/jcoglan) 的说法了吧？
+哇！很像命令行的pipe吧：`doIO1 | doIO2 | useResult`。我们只是描述了数据（value）的流向，而不必关注数据到底是如何成功地由1转到2的。这就是函数式编程的特点，现在稍微可以理解 [@jcoglan](https://github.com/jcoglan) 的说法了吧？
 
 我并不打算详细介绍Promise，就此打住，具体请参考<http://www.promisejs.org>，以及其实现，[Q](https://github.com/kriskowal/q)。
 
@@ -144,15 +144,15 @@ Q.all([
 ]).then...
 ```
 
-当然，例子中的函数我写得很随意，实际上，函数能否组合在一起，是要考虑它们所取的参数的。
+当然，例子中的函数我写得很随意，实际上，函数能否组合在一起，需要考虑它们的参数列表及返回值是否匹配。
 
 
 ## 最后
 
-通过以上对比，我们可以了解到，Promise风格的异步编程要比使用Callback更容易写出简练的代码，将我们从复杂的异步控制流中解放出来，重新专注在程序的核心价值，数据（Value），以及数据的流动、转换上。
+通过以上对比，我们可以了解到，Promise风格的异步编程要比回调风格更容易写出简练的代码，可以将我们从复杂的异步控制流中解放出来，重新专注在程序的核心价值，数据（Value），以及数据的流动、转换上。
 
-这里选取的同步+异步函数组合场景，我在实践中确实有应用，觉得很有用，同时也比较适合用来展示Promise编程的魅力，在此分享给大家。
+这里选取的同步+异步函数组合场景，我在实践中确有应用，同时也觉得比较适合用来展示Promise编程的魅力，在此分享给大家。
 
 <a id="generators"></a>最后的最后，前面提到的Generators，是一项在Node.js 0.11.x后提供的特性。
 
-简单讲，就是让我们可以像写阻塞性代码（如文章开头那段Java代码）那样写异步代码。请参考： <https://github.com/visionmedia/co#readme>
+简单讲，就是让我们可以像写阻塞性代码（如文章开头那段Java代码）那样调用异步过程。请参考： <https://github.com/visionmedia/co#readme>
