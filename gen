@@ -37,7 +37,9 @@ post() {
   echo "path: $file" >> $file
   echo "---" >> $file
 
-  if [[ `type -P subl` ]]; then
+  if [[ `type code` ]]; then
+    code $file
+  elif [[ `type subl` ]]; then
     # open file in sublime text 2, if it's a Mac
     subl $file
   fi
@@ -48,6 +50,10 @@ case $1 in
     post "$@"
     ;;
   * )
-    echo "unknown command: $1"
+    echo "Usage: gen <command> [options]
+
+Available commands:
+    post        Create a new post: gen post <title> [category]
+"
     ;;
 esac

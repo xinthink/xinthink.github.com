@@ -14,3 +14,9 @@
 
 
 /bak
+
+_site
+.jekyll*
+.*-cache
+vendor
+docs

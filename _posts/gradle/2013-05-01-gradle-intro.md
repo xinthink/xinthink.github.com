@@ -5,6 +5,7 @@ description:
 category: gradle
 tags: gradle build automation
 path: _posts/gradle/2013-05-01-gradle-intro.md
+excerpt: 过去Java世界的人谈起构建和自动化，Ant、Mave一定是必备词汇吧，而如今，"Gradle"这个名字也渐渐吸引了更多的目光。今天我们就来认识一下号称“下一代自动化工具”的 Gradle。
 ---
 ## 认识 Gradle
 过去 [Java](http://java.com) 世界的人谈起构建和自动化， [Ant](http://ant.apache.org/) 、 [Maven](http://maven.apache.org) 一定是必备词汇吧，而如今，"[Gradle](http://gradle.org)"这个名字也渐渐吸引了更多的目光。今天我们就来认识一下号称“下一代自动化工具”的 Gradle。
