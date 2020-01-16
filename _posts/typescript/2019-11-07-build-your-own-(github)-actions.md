@@ -2,7 +2,7 @@
 layout: post
 title: "Build your own (GitHub) actions"
 subtitle: "Using TypeScript & Yarn"
-description: "Build your own (GitHub) actions"
+feature: /images/feature-actions-telegram.jpg
 category: [typescript, github-actions]
 tags:
 path: _posts/typescript/2019-11-07-build-your-own-(github)-actions.md

@@ -4,12 +4,10 @@ layout: default
 
 <article class="post detailed">
   <h1>{{ page.title }}</h1>
-
+  {% if page.subtitle %}
+    <p class="subtitle">{{ page.subtitle }}</p>
+  {% endif %}
   <div>
-    <p class="author_title">{{site.author}}  ·  {{ page.date | date: "%B %e, %Y" }}</p>
-    {% if page.last_modified_at %}
-    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
-    {% endif %}
     <div class="post-tags">
       {% if post %}
         {% assign categories = post.categories %}
@@ -18,11 +16,15 @@ layout: default
       {% endif %}
       {% for category in categories %}
         <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-        {% unless forloop.last %}&nbsp;{% endunless %}
+        <!-- {% unless forloop.last %}&nbsp;{% endunless %} -->
       {% endfor %}
     </div>
+    <div class="author_title">{{site.author}} · {{ page.date | date: '%Y-%m-%d' }}</div>
+    {% if page.last_modified_at %}
+    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
+    {% endif %}
   </div>
-    
+
   <div class="entry">
     {{ content }}
   </div>

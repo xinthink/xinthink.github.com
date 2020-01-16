@@ -13,7 +13,8 @@
 /* BASE RULES */
 /**************/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+// @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('/fonts/lora-regular/stylesheet.css');
 
 html {
   font-size: 100%;
@@ -447,15 +448,29 @@ body:after {
 
 .post h1{
   font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  text-align: center;
-  font-weight: bold;
+  text-align: start;
+  font-weight: 600;
   font-kerning: auto;
   font-feature-settings: "kern","liga","dlig","hlig","cswh";
   line-height: 1.2;
 }
 
-.page h1{
+.post img.feature{
+  margin: 30px 0 -15px 0;
+}
+
+.post .subtitle{
   font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align: start;
+  font-feature-settings: "kern","liga","dlig","hlig","cswh";
+  line-height: 1.1;
+  // color: #777;
+  color: #939aa1;
+  font-size: 22px;
+}
+
+.page h1{
+  // font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-align: center;
   font-weight: bold;
   font-kerning: auto;
@@ -470,8 +485,54 @@ body:after {
 }
 
 .post_date{
-  text-align: center;
+  text-align: start;
   color: #939aa1;
+  font-size: 16px;
+}
+
+.post .post_date_tags{
+  margin: 12px 0 12px 0;
+  font-size: 16px;
+  color: #939aa1;
+  a.tag{
+    font-size: 16px;
+    color: #939aa1;
+  }
+}
+
+article,.post.detailed{
+  h1{
+    font-family: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 40px 0 16px 0;
+  }
+  .subtitle{
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .author_title,.post-tags{
+    font-size: 16px;
+    text-align: start;
+    letter-spacing: normal;
+  }
+}
+
+article{
+  h2{
+    margin: 30px 0;
+  }
+  hr,p{
+    margin: 24px 0;
+    font-family: 'Lora', 'Times New Roman', serif;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 160%;
+  }
+  img:first-of-type{ // feature image
+    margin: 36px 0;
+  }
 }
 
 .cd-container a {
@@ -611,7 +672,7 @@ Modules - reusable parts of our design
 
 #gh-latest{
     font-size: 16px;
-    text-align: center;		
+    text-align: center;
 }
 
 .text-link {
@@ -700,7 +761,7 @@ Modules - reusable parts of our design
   font-size: 14.5px;
   padding: 2px 13px;
   border: none;
-  background-color: #4CAF50;
+  background-color: #4CAF80EC;
   border-radius: 50px;
   color: #fff;
 }
@@ -714,7 +775,7 @@ Modules - reusable parts of our design
   display: inline-block;
 }
 
-.pagination a {    
+.pagination a {
   &:hover {
       background-color: #f1f1f1;
       color: #333;

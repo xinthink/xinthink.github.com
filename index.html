@@ -6,17 +6,26 @@ layout: default
   {% for post in paginator.posts %}
     <article class="post">
       <a href="{{ site.baseurl }}{{ post.url }}">
-        <h1>{{ post.title }}</h1>
+        {% if post.feature %}<img class="feature" src="{{post.feature}}" />{% endif %}
 
-        <div>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-        </div>
+        <h1>{{ post.title }}</h1>
+        {% if post.subtitle %}<div class="subtitle">{{ post.subtitle }}</div>{% endif %}
+
+        <p class="post_date_tags">
+          <span class="post_date">{{ post.date | date: '%Y-%m-%d' }}</span>
+          &nbsp;
+          {% assign categories = post.categories | slice: 0, 4 %}
+          {% for category in categories %}
+          <a class="tag" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+          {% endfor %}
+          {% if categories.size > 3 %}…{% endif %}
+        </p>
       </a>
       <div class="entry">
         {{ post.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">全文</a>
     </article>
   {% endfor %}
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
     {% seo title=false %}
     {% include meta.html %}
 
@@ -31,8 +31,8 @@
             </div>
 
             <nav>
-              <a href="{{ site.baseurl }}/search">Search</a>
-              <a href="{{ site.baseurl }}/about">About</a>
+              <a href="{{ site.baseurl }}/categories">分类</a>
+              <a href="{{ site.baseurl }}/search">搜索</a>
             </nav>
           </header>
         </div>
