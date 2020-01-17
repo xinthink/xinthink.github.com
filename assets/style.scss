@@ -64,17 +64,17 @@ h2 {
   font-size: 24px;
 }
 
-@media (min-width: 769px){
-	.post h2::before, .post h2::after {
-	    content: "";
-	    display: inline-block;
-	    vertical-align: middle;
-	    width: 46px;
-	    height: 1px;
-	    background: rgb(192, 211, 218);
-	    margin: 0px 30px;
-	}
-}
+// @media (min-width: 769px){
+// 	.post h2::before, .post h2::after {
+// 	    content: "";
+// 	    display: inline-block;
+// 	    vertical-align: middle;
+// 	    width: 46px;
+// 	    height: 1px;
+// 	    background: rgb(192, 211, 218);
+// 	    margin: 0px 30px;
+// 	}
+// }
 
 h3 {
   font-size: 20px;
@@ -509,11 +509,11 @@ article,.post.detailed{
   }
   .subtitle{
     margin: 0 0 20px 0;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
   }
   .author_title,.post-tags{
-    font-size: 16px;
+    font-size: 14px;
     text-align: start;
     letter-spacing: normal;
   }
@@ -521,17 +521,65 @@ article,.post.detailed{
 
 article{
   h2{
-    margin: 30px 0;
+    margin: 39px 0 0;
+    text-align: left;
   }
-  hr,p{
+  h3,h4,h5{
+    text-align: left;
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+  p{
     margin: 24px 0;
     font-family: 'Lora', 'Times New Roman', serif;
-    font-weight: 200;
+    font-weight: 50;
     font-size: 20px;
-    line-height: 160%;
+    line-height: 165%;
+    // color: rgba(0,0,0,.84);
   }
   img:first-of-type{ // feature image
     margin: 36px 0;
+  }
+  table{
+    margin: 24px 0;
+    display: block;
+    overflow-x: auto;
+    font-size: 14px;
+  }
+  ul,ol{
+    font-family: 'Lora', 'Times New Roman', serif;
+    li{
+      margin-top: .9em;
+    }
+    li:first-of-type{
+      margin-top: 1.8em;
+    }
+  }
+  ul ul,ol ol{
+    li,li:first-of-type{
+      margin-top: .4em;
+    }
+    li:last-of-type{
+      margin-bottom: .4em;
+    }
+  }
+  hr{
+    margin: 48px 0 42px 0;
+    height: 0;
+    border: 0;
+    text-align: center;
+    overflow: visible;
+  }
+  hr:before{
+    content: "...";
+    display: inline-block;
+    position: relative;
+    top: -36px;
+    margin-left: .6em;
+    color: #121212c0;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: .6em;
   }
 }
 
@@ -818,6 +866,9 @@ Modules - reusable parts of our design
     bottom: 0;
     display: block;
     width: 100%;
+  }
+  article table {
+    font-size: 12px;
   }
 }
 
