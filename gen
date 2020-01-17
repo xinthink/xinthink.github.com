@@ -10,7 +10,7 @@ fi
 post() {
   shift 1
   title="$1"
-  name="`echo "$title" | awk '{gsub(/ /,"-")}; 1' | tr 'A-Z' 'a-z'`"
+  name="`echo "$title" | awk '{gsub(/[\(\)\[\]]/,"")}; 1'  | awk '{gsub(/ /,"-")}; 1' | tr 'A-Z' 'a-z'`"
   cat="`echo "$2" | awk '{gsub(/ /,"-")}; 1' | tr 'A-Z' 'a-z'`"
 
   if [ ! "$name" ]; then
