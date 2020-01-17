@@ -15,9 +15,9 @@ excerpt: |
 
 ## Motivation
 
-If you have a multi-module [Gradle] project (e.g. most Android projects), you may want to define all the dependencies in one place, then refer to them in sub-projects' `build.gradle` file, making it easier to maintain the dependencies across the whole project.
+If you have a multi-module [Gradle] project (e.g. most Android projects), you may want to define all the dependencies in one place, then make references in sub-projects' build file, keeping them consistent across the whole project.
 
-This approach is exemplified by Jake Wharton's [U+2020 app], in which dependencies are pre-defined and stored into [Extra Properties] as a map:
+This approach is exemplified by Jake Wharton's [U+2020 app], in which dependencies are pre-defined as [Extra Properties]:
 
 ```gradle
 // global definition in root project
@@ -47,11 +47,11 @@ dependencies {
 }
 ```
 
-It's straightforward for Groovy-flavored Gradle scripts. However, it'll be a bit different when it comes to [Gradle Kotlin DSL] (i.e. Gradle scripts written in [Kotlin]).
+It's straightforward for *Groovy-flavored* Gradle scripts. However, it'll be a bit different when it comes to [Gradle Kotlin DSL] (i.e. Gradle scripts written in [Kotlin]).
 
 ## The Problem
 
-Kotlin compiler, which is statically typed, will complain about the following statement, which is the Kotlin equivalent of the dependency reference we wrote in the snippets above.
+[Kotlin] compiler, which is statically typed, will complain about the following statement, which is the [Kotlin] equivalent of the dependency reference we wrote in the snippets above.
 
 ![Kotlin Syntax Error](/images/gradle-kts-syntax-error.jpg)
 
@@ -90,9 +90,9 @@ extra.deps {
 }
 ```
 
-This is the most concise syntax I can achieve. optionally, the dependencies can be grouped recursively, with no limit.
+This is the most concise syntax I can achieve. Optionally, the dependencies can be grouped recursively, with no limit.
 
-The following is how we retrieve the dependencies later, please notice that a dot (`.`) operator can be used to access grouped dependency, *square brackets* are also supported:
+The following is how we retrieve the dependencies later, please notice that a *dot* (`.`) operator can be used to access grouped dependencies, *square brackets* are also supported:
 
 ```kotlin
 // Dependency retrieval
@@ -135,7 +135,7 @@ class DependencyGroup {
 }
 ```
 
-Finally, put the dependencies tree into [Extra Properties]:
+Finally, store the dependencies tree inside [Extra Properties]:
 
 ```kotlin
 val ExtraPropertiesExtension.deps: DependencyGroup
@@ -150,9 +150,9 @@ That's all, it's done! 🍻 Now you have easy access to the dependencies by writ
 
 ## Conclusion
 
-Actually, what we just built is a simple [DSL (domain-specific language)], which we use to manage the dependencies across multiple Gradle modules.
+Actually, what we just built is a simple [DSL (domain-specific language)], which we use to manage dependencies across multiple Gradle modules. And this is only the tip of an iceberg of the powerful [Kotlin] language features!
 
-The completed code can be found in this [Gist][complete-gist]. Put them under the `buildSrc` directory to enjoy the syntax sugar.
+The complete code snippet can be found in this [Gist][complete-gist]. Put the files under the `buildSrc` directory to enjoy the syntax sugar.
 
 > For those who are not familiar with `buildSrc`, please refer to the [Guide][build-src-guide].
 
