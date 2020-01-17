@@ -5,6 +5,7 @@ description: "在 Node.js 中使用声明式缓存"
 category: node
 tags: node.js fp
 path: _posts/node/2013-11-02-node-decl-cache.md
+excerpt: 通过应用高阶函数，在Node.js中实现一种类似Java Spring框架的简化的声明式缓存机制，可以有效地将缓存相关的配置（如：选择性使能缓存，过期时间等）从函数逻辑中分离出来。
 ---
 ## Why
 写了多年的 Java 程序，即使在转投 [Node](http://nodejs.org) 之后，仍然对 [Spring 框架](http://projects.spring.io/spring-framework) 的 IoC 、Declarative XXX 记忆犹新，于是在 Node 项目中要用到缓存时，自然地想起了 [Declarative caching](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html#cache-annotations)，就有了山寨一把的想法。。。

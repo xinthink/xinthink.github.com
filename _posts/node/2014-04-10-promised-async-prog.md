@@ -5,6 +5,7 @@ description: "Promises风格的异步编程"
 category: node
 tags: node.js async promise callback fp
 path: _posts/node/2014-04-10-promised-async-prog.md
+excerpt: 在Node.js中，Promise可用于简化异步处理过程的复杂度，解决Callback Hell问题，除了说明这个问题之外，本文还从另一个不常被提及的场景切入，来说明Promise给我们提供了更高的自由度，有效地把函数的内在逻辑和它的调度方式（同步/异步）分离开来，从而帮助我们编写重用度更高的函数。
 ---
 ## Callback Hell
 异步I/O是Node.js的卖点，在处理高并发I/O的场景时确实卓有成效，但世上没有免费的晚餐（因为我知道某歌有免费午餐），作为交换，你必须付出改变既有编程习惯的代价。

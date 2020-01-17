@@ -3,11 +3,16 @@ layout: post
 categories: fp haskell
 tags: fp haskell
 path: _posts/haskell/2012-06-09-Polymorphism.md
+excerpt: |
+  一个值如果根据上下文可以表现为多种类型，就可以称其之为多态的。多态可以分为很多不同的种类：
+  1. 参数型多态（Parametric polymorphism），通常可以在函数式语言中找到
+  2. 特殊的多态（Ad-hoc polymorphism）或重载（Overloading）
+  3. 包含型多态（Inclusion polymorphism），多见于面向对象语言
 ---
 一个值如果根据上下文可以表现为多种类型，就可以称其之为多态的。多态可以分为很多不同的种类：
 
 1. 参数型多态（[Parametric polymorphism](http://en.wikipedia.org/wiki/Parametric_polymorphism)），通常可以在函数式语言中找到
-2. 特殊的多态（[Ad-hoc polymorphism  *  ](http://en.wikipedia.org/wiki/Ad-hoc_polymorphism)）或重载（Overloading）
+2. 特殊的多态（[Ad-hoc polymorphism](http://en.wikipedia.org/wiki/Ad-hoc_polymorphism)）或重载（Overloading）
 3. 包含型多态（[Inclusion polymorphism](http://en.wikipedia.org/wiki/Inclusion_polymorphism)），多见于面向对象语言
 
   * 此处Ad-hoc指这种多态不属于类型系统的基本特性，因此取特例的含义
