@@ -212,7 +212,7 @@ To make sure your first action is functioning properly, add a step to any workfl
   with:
     botToken: <TelegramBotToken>
     chatId: <TelegramChatId>
-    jobStatus: ${{ job.status }}
+    jobStatus: ${{ "{{ job.status " }}}}
 ```
 
 Trigger the workflow by making a few commits to the repo, to find out if everything works fine.
