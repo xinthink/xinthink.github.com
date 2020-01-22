@@ -23,7 +23,8 @@ html {
 
 body {
   background: #fff;
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #404040;
   line-height: 1.7;
   font-weight: 400;
@@ -39,7 +40,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: $darkerGray;
   font-weight: bold;
 
@@ -303,14 +305,20 @@ p > img {
     display: block;
     margin: 0 auto;
   }
+
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial,
+    'Hiragino Sans GB',
+    STHeiti, STXihei,
+    'Heiti SC',
+    sans-serif;
 }
 
 .site-name {
   margin: 0;
   color: $darkGray;
   cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
+  font-family: inherit;
+  font-weight: 400;
   font-size: 28px;
   letter-spacing: 1px;
   text-align: left;
@@ -328,12 +336,23 @@ p > img {
   @include mobile {
     margin: 3px 0;
   }
+
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial,
+    'Hiragino Sans GB',
+    'STHeiti Light', STXihei,
+    'Heiti SC',
+    sans-serif;
+  font-weight: 300;
 }
 
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial,
+    'Hiragino Sans GB',
+    STHeiti, STXihei,
+    'Heiti SC',
+    sans-serif;
   font-size: 18px;
 
   @include mobile {
@@ -397,6 +416,12 @@ nav {
   }
 
   .read-more {
+    font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Helvetica, Arial,
+      'Hiragino Sans GB',
+      STHeiti, STXihei,
+      'Heiti SC',
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-transform: uppercase;
     font-size: 15px;
   }
@@ -447,7 +472,16 @@ body:after {
 }
 
 .post h1{
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  // font: different from conent, sans serif for english, prefer fangsong/songti (serif) for chinese
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+    'Source Han Serif CN',
+    'Songti SC',
+    // STSong,
+    'Hiragino Sans GB',
+    STHeiti, STXihei,
+    'Heiti SC',
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    ;
   font-size: 30px;
   text-align: start;
   font-weight: 600;
@@ -461,7 +495,16 @@ body:after {
 }
 
 .post .subtitle{
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  // font: different from conent, sans serif for english, prefer fangsong/songti (serif) for chinese
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial,
+    'Source Han Serif CN',
+    'Songti SC',
+    // STSong,
+    'Hiragino Sans GB',
+    STHeiti, STXihei,
+    'Heiti SC',
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 20px;
   text-align: start;
   font-feature-settings: "kern","liga","dlig","hlig","cswh";
@@ -472,8 +515,13 @@ body:after {
 }
 
 .post .entry{
-  font-family: Lora, Lora, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Lora, Lora, Georgia, Cambria, "Times New Roman", Times,
+    'Hiragino Sans GB',
+    'STHeiti Light', STXihei,
+    'Heiti SC',
+    serif;
   font-size: 18px;
+  margin-bottom: 4px;
 }
 
 .page h1{
@@ -499,7 +547,8 @@ body:after {
 
 .post .post_date_tags{
   margin: 12px 0 12px 0;
-  font-family: -system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   color: #939aa1;
   a.tag{
@@ -510,7 +559,15 @@ body:after {
 
 article,.post.detailed{
   h1{
-    font-family: Lora, Georgia, Cambria, "Times New Roman", Times, serif;
+    // title-font: same as content for english, prefer fangsong/songti (serif) for chinese
+    font-family: Lora, Georgia, Cambria, "Times New Roman", Times,
+      'Source Han Serif CN',
+      'Songti SC',
+      // STSong,
+      'Hiragino Sans GB',
+      STHeiti, STXihei,
+      'Heiti SC',
+      serif;
     font-size: 40px;
     font-weight: bold;
     line-height: 125%;
@@ -536,15 +593,46 @@ article,.post.detailed{
 article{
   h2{
     margin: 39px 0 0;
+    // font: different from conent, sans-serif for english, prefer fangsong/songti (serif) for chinese
+    font-family: -system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Helvetica, Arial,
+      'Source Han Serif CN',
+      'Songti SC',
+      // STSong,
+      'Hiragino Sans GB',
+      STHeiti, STXihei,
+      'Heiti SC',
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      ;
     text-align: left;
+    font-size: 32px;
   }
   h3,h4,h5{
     text-align: left;
-    font-family: Lora, Georgia, Cambria, "Times New Roman", Times, serif;
+    // font: same as content
+    font-family: Lora, Georgia, Cambria, "Times New Roman", Times,
+      'Hiragino Sans GB',
+      STHeiti, STXihei,
+      'Heiti SC',
+      serif;
+  }
+  h3{
+    font-size: 26px;
+  }
+  h4{
+    font-size: 22px;
+  }
+  h5{
+    font-size: 19px;
   }
   p{
     margin: 24px 0;
-    font-family: Lora, Georgia, Cambria, "Times New Roman", Times, serif;
+    // content-font: serif for english, sans serif for chinese (heiti)
+    font-family: Lora, Georgia, Cambria, "Times New Roman", Times,
+      'Hiragino Sans GB',
+      'STHeiti Light', STXihei,
+      'Heiti SC',
+      serif;
     font-size: 19px;
   }
   img:first-of-type{ // feature image
@@ -563,7 +651,11 @@ article{
     }
   }
   ul,ol{
-    font-family: Lora, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: Lora, Georgia, Cambria, "Times New Roman", Times,
+      'Hiragino Sans GB',
+      'STHeiti Light', STXihei,
+      'Heiti SC',
+      serif;
     font-size: 19px;
     li{
       margin-top: .9em;
