@@ -8,7 +8,8 @@ feature: /images/feature-flutter-keep-01.gif
 category: [flutter, firebase, firestore, dart, note-taking]
 tags:
 excerpt: |
-  First part of a series, about how to create a simplified 'clone' of Google Keep from scratch.
+  I'm a fan of both Flutter & Google Keep. In the series, I introduce the process of how to make a simple notebook app like Keep from scratch using Flutter & Firebase.
+  In this first part of the series, we're going to set up a Flutter project, provide an authentication process, and a simple screen to show the note list.
 ---
 
 I'm a fan of [Google Keep], I've been using it since it was launched. I put pending tasks, reminders for chores, almost anything needs to remember, into Keep. It's intuitive to use, helps me stay focused on the priorities.
@@ -73,7 +74,7 @@ Via providers, we can fulfill the above requirements easier, with a cleaner code
 
 ---
 
-With the scheme in mind, let's start to write the code.
+With the scheme in mind, let's begin writing the code.
 
 To use `provider` and the Firebase toolkits, we have to add the dependencies to `pubspec.yaml`:
 
@@ -114,7 +115,7 @@ class NotesApp extends StatelessWidget {
 }
 ```
 
-The `StreamProvider`/`Consumer` pair here is to watch the `onAuthStateChanged`, which is a stream of Firebase authentication events, whenever the signed-in state has changed, the `Consumer` will get notified and re-build the widget according to the current state.
+The `StreamProvider`/`Consumer` pair here is to watch the `onAuthStateChanged`, a stream of Firebase authentication events, whenever the signed-in state has changed, the `Consumer` will get notified and re-build the widget according to the current state.
 
 A little trick here is to use a `CurrentUser` to wrap the `FirebaseUser`, to distinguish the default initial and the unauthenticated state, both of which are `null`.
 
@@ -201,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 ```
 
-Just ask for a credential from Google Sign-In, and then use it to authenticate with Firebase.
+Just ask for a Google Sign-In credential, and then use it to authenticate with Firebase.
 
 You can see that there's nothing to do after the authentication finished successfully. In this situation, the `FirebaseAuth.onAuthStateChanged` stream emits a *Signed-in* event, which triggers a re-build of the root *gatekeeper* widget so that the `HomeScreen` is rendered.
 
@@ -225,7 +226,13 @@ But how can you add the first note without a note editor? You can do this with t
 
 Please name the collection as `notes-{user_id}`, and you can find your user id in the Authentication page of the Firebase Console.
 
-Before we can retrieve notes from Firestore, we need a model represents a note, and functions to transform between the Firestore model and our own.
+To reinforce privacy security, you may also want to set access rules against the dataset, making sure that users can only see & edit their own notes.
+
+![Firestore rules](/images/fltkeep-firestore-rules.png)
+
+---
+
+Before we can retrieve notes from Firestore, we need a model that represents an individual note, and functions to transform between the Firestore model and our own.
 
 ```dart
 class Note {
@@ -454,8 +461,7 @@ If everything goes fine, you should now be able to see the first note in your se
 
 We're doing well so far. We've built a simple reactive-styled app by using the `provider` package, and also learned how to use the Firebase toolkits.
 
-But the app is still useless without a note editor.
-We'll add more functionalities to it in the next parts of the series.
+However, the app is less than useful without a note editor. We'll add more functionalities to it in the next parts of the series.
 
 [Google Keep]: https://www.google.com/keep
 [Flutter]: https://flutter.dev
