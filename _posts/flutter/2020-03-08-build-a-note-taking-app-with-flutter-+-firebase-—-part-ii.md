@@ -18,7 +18,7 @@ excerpt: |
 ![head image](/images/feature-flutter-keep-02.jpg)
 
 
-> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication。<br>
 > This article has been published originally in the [Flutter Community][medium story] on Medium.
 
 
@@ -493,7 +493,7 @@ In the next part, I'd like to introduce how to query different subsets of notes 
 Thank you for reading! 🙌
 
 
-> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication。<br>
 > This article has been published originally in the [Flutter Community][medium story] on Medium.
 
 

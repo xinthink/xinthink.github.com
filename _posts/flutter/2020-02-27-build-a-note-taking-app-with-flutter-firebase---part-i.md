@@ -15,7 +15,7 @@ excerpt: |
 ![head image](/images/feature-flutter-keep-01.gif)
 
 
-> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication。<br>
 > This article has been published originally in the [Flutter Community][medium story] on Medium.
 
 
@@ -473,7 +473,7 @@ However, the app is less than useful without a note editor. We'll add more funct
 Thank you for reading! 🙌
 
 
-> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication。<br>
 > This article has been published originally in the [Flutter Community][medium story] on Medium.
 
 
