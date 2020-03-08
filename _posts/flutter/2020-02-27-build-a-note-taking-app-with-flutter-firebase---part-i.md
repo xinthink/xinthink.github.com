@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "Build a note-taking app with Flutter + Firebase - Part I"
+title: "Build a note-taking app with Flutter + Firebase — Part I"
 subtitle: Create a simplified 'clone' of Google Keep from scratch
 tags:
 path: _posts/flutter/2020-02-27-build-a-note-taking-app-with-flutter-firebase---part-i.md
 feature: /images/feature-flutter-keep-01.gif
-category: [flutter, firebase, firestore, dart, note-taking]
+category: [flutter, firebase, firestore, dart, flutter-web, note-taking]
 tags:
 excerpt: |
   I'm a fan of both Flutter & Google Keep. In the series, I introduce the process of how to make a simple notebook app like Keep from scratch using Flutter & Firebase.
   In this first part of the series, we're going to set up a Flutter project, provide an authentication process, and a simple screen to show the note list.
 ---
+
+![head image](/images/feature-flutter-keep-01.gif)
+
+
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> This article has been published originally in the [Flutter Community][medium story] on Medium.
+
 
 I'm a fan of [Google Keep], I've been using it since it was launched. I put pending tasks, reminders for chores, almost anything needs to remember, into Keep. It's intuitive to use, helps me stay focused on the priorities.
 
@@ -461,7 +468,14 @@ If everything goes fine, you should now be able to see the first note in your se
 
 We're doing well so far. We've built a simple reactive-styled app by using the `provider` package, and also learned how to use the Firebase toolkits.
 
-However, the app is less than useful without a note editor. We'll add more functionalities to it in the next parts of the series.
+However, the app is less than useful without a note editor. We'll add more functionalities to it in the [next parts][part II] of the series.
+
+Thank you for reading! 🙌
+
+
+> 这篇原创文章最初发表在Medium上的 [Flutter Community][medium story] publication中。<br>
+> This article has been published originally in the [Flutter Community][medium story] on Medium.
+
 
 [Google Keep]: https://www.google.com/keep
 [Flutter]: https://flutter.dev
@@ -477,3 +491,5 @@ However, the app is less than useful without a note editor. We'll add more funct
 [credentials page]: https://console.cloud.google.com/apis/credentials
 [GitHub repo]: https://github.com/xinthink/flutter-keep
 [offline capabilities]: https://firebase.google.com/docs/firestore/manage-data/enable-offline
+[medium story]: https://medium.com/flutter-community/build-a-note-taking-app-with-flutter-firebase-part-i-53816e7a3788
+[part II]: /build-a-note-taking-app-with-flutter-+-firebase-part-ii/
